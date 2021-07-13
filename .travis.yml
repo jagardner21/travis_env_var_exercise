@@ -15,9 +15,9 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t simple-node --build-arg FAVORITE_FOOD=${FAVORITE_FOOD} .
-  - docker tag simple-node jagardner21/simple-node:latest
+  - docker build -t travis-practice --build-arg FAVORITE_FOOD=${FAVORITE_FOOD} .
+  - docker tag travis-practice jagardner21/travis-practice:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push jagardner21/simple-node
+  - docker push jagardner21/travis-practice
